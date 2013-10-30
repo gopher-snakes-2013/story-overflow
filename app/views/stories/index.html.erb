@@ -1,5 +1,7 @@
 <h2>Awesome stories</h2>
 
+<%= link_to "Create new story", new_story_path %>
+
 <ul class="story-list">
 <% @stories.each do |story| %>
   <li class="story-title"><%= story.title %></li><br />
