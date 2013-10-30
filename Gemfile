@@ -16,7 +16,7 @@ end
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'thin'
+  # gem 'thin'
   gem 'capybara'
 end
 
