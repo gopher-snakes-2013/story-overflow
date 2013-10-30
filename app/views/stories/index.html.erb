@@ -6,7 +6,7 @@
 
 <ul class="story-list">
   <% @stories.each do |story| %>
-    <li class="story-title"><%= story.title %></li><br />
+    <li class="story-title"><%= link_to story.title, story_path(story) %></li><br />
     <li class="story-description"><%= story.description %></li><br />
     <li class="story-image_url"><%= story.image_url %></li><br />
   <% end %>

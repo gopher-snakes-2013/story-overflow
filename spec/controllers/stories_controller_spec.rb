@@ -21,7 +21,7 @@ describe StoriesController do
     let(:valid_attributes) {
       { title:"New title!", description:"lots of content", image_url: "http://eofdreams.com/data_images/dreams/cat/cat-06.jpg" }
     }
-  let(:story) {Story.create(valid_attributes)}
+    let(:story) {Story.create(valid_attributes)}
 
     it "visits the show page" do
       get :show, id: story.id
