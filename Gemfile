@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'rails', '3.2.14'
 
@@ -11,12 +12,12 @@ group :development do
   gem 'sextant'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'thin'
 end
 
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
-  # gem 'thin'
   gem 'capybara'
 end
 
