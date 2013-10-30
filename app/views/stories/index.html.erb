@@ -1,1 +1,8 @@
-<div id="tool_bar"></div>
+<h2>Awesome stories</h2>
+
+<ul class="story-list">
+<% @stories.each do |story| %>
+  <li class="story-title"><%= story.title %></li><br />
+  <li class="story-description"><%= story.description %></li><br />
+  <li class="story-image-url"><%= story.image_url %></li><br />
+<% end %></ul>
