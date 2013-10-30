@@ -2,6 +2,23 @@
   background-color: #290166;
   height: 25px;
   margin-bottom: 40px;
+}
 
+.story {
+  border: 1px solid #F00;
+  display: inline-block;
+  float: left;
+  width: 150px;
+  margin: 0px 15px 15px 0px;
+}
 
+#story-list img {
+  position: absolute;
+  clip:rect(0px,150px,150px,0px);
+}
+#story-list li a {
+  text-decoration: none;
+  color: white;
+  font-size: .8em;
+  font-family: 'Share Tech', sans-serif;
 }
