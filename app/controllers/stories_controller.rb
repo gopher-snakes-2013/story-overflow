@@ -8,11 +8,12 @@ class StoriesController < ApplicationController
   end
 
   def create
-
+    @story = Story.create(params[:story])
+    redirect_to root_path
   end
 
   def new
-
+    @story = Story.new
   end
 
 end
