@@ -18,5 +18,11 @@ describe UsersController do
         post :create, :user => {username: 'poop'}
       }.to_not change(User, :count)
     end
+
+    it "should create a session upon signing up" do
+      post :create, user: {username: 'Laura', password: 'password'}
+      session[:user_id].should eq User.find_by_username("Laura").id
+    end
+
   end
 end

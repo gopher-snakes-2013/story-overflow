@@ -29,6 +29,14 @@ feature 'Visitor browses the website' do
       page.should have_content 'You have successfully signed up.'
     end
   end
+end
 
-
+feature 'New user' do
+  scenario 'signs up' do
+    visit new_user_path
+    fill_in "Username", with: "Pumpkin"
+    fill_in "Password", with: "Butter"
+    click_button "Submit"
+    expect(session[:user_id]).to eq(User.find_by_username("Pumpkin").id)
+  end
 end
