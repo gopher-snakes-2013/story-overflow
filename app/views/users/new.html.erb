@@ -1,6 +1,6 @@
 You're almost ready to share your story.
 
-<%= form_for :user do |f| %>
+<%= form_for :user, url: users_path, method: 'post'  do |f| %>
   <%= f.label :username %>:
   <%= f.text_field :username %>
   <%= f.label :password %>:
