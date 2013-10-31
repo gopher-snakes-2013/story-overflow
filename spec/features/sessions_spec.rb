@@ -20,16 +20,23 @@ feature 'Visitor browses the website' do
 
     it "can sign up and view profile page" do
       visit new_user_path
-
       expect {
         fill_in "Username", with: "octocat"
         fill_in "Password", with: "password123"
-        click_link "Submit"
-      }.to change(User.count).by(1)#Need to make confirmation page
+        click_button "Submit"
+      }.to change{User.count}.by(1)#Need to make confirmation page
 
       page.should have_content 'You have successfully signed up.'
     end
   end
+end
 
-
+feature 'New user' do
+  scenario 'signs up' do
+    visit new_user_path
+    fill_in "Username", with: "Pumpkin"
+    fill_in "Password", with: "Butter"
+    click_button "Submit"
+    expect(session[:user_id]).to eq(User.find_by_username("Pumpkin").id)
+  end
 end

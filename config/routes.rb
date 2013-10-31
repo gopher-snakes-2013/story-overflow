@@ -3,4 +3,5 @@ StoryOverflow::Application.routes.draw do
 
   resources :stories, :only => [:index, :show, :create, :new]
   resources :users, :only => [:create, :new, :show]
+  resources :sessions, :only => [:create]
 end

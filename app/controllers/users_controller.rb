@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(params[:user])
-    redirect_to root_path
+    session[:user_id] = @user.id
   end
 
 
