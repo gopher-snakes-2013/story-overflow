@@ -2,7 +2,7 @@
 
 <div id="tool_bar"></div>
 
-<%= link_to "Create new story", new_story_path %>
+<%= link_to "Create new story", new_story_path, id: :new_story %>
 
 <ul class="story-list">
   <% @stories.each do |story| %>
@@ -13,6 +13,13 @@
 
     <%= link_to "EDIT THIS SHIT", edit_story_path(story.id) %>
 
-    <%= link_to "DELETE THIS SHIT", story_path(story.id), :method => :delete %>
+    <%= link_to "DELETE THIS SHIT", story_path(story.id), method: :delete %>
   <% end %>
 </ul>
+
+<div id="pop-up">
+  <%= render "form" %>
+</div>
+
+
+
