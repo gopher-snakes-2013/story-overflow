@@ -21,9 +21,14 @@ class StoriesController < ApplicationController
   end
 
   def update
-    @story = Story.find(params[:id])
-    @story.update_attributes(params[:story])
-    redirect_to story_path(params[:id])
+    Story.update(params[:id], params[:story])
+    redirect_to root_path
+  end
+
+  def destroy
+    Story.destroy(params[:id])
+    redirect_to root_path
+
   end
 
 end
