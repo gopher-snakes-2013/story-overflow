@@ -16,3 +16,4 @@ end
 #call .authenticate(<--password) on @user.  return @user if auth, else false
 
 #module logged in helper
+
