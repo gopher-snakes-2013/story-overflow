@@ -27,7 +27,7 @@ describe User do
   end
 
   it "has a secret password" do
-    expect(user.password).to_not eql("password")
+    expect(user.password_digest).to_not eql("password")
   end
 end
 
