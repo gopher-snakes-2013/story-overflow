@@ -3,6 +3,9 @@
 <div id="tool_bar"></div>
 
 <%= link_to "Create new story", new_story_path, id: :new_story %>
+<div id="pop-up">
+  <%= render "form" %>
+</div>
 
 <div id='story-container'>
   <ul class="story-list">
@@ -12,6 +15,3 @@
   </ul>
 </div>
 
-<div id="pop-up">
-  <%= render "form" %>
-</div>

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('#new_story').click(function(event){
     event.preventDefault();
-    $('.hidden').removeClass('hidden')
+    $('#new-story-form').toggleClass('hidden')
   }); // upon clicking 'Create a Story', removes the 'hidden' class from the form
 
   $('.submit-button input').on('click', function(e){
