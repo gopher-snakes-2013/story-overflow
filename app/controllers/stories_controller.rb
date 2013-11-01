@@ -9,8 +9,12 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @story = Story.create(params[:story])
-    redirect_to root_path
+    @story = Story.new(params[:story])
+    if @story.save
+      render :text => render_to_string(:partial => 'story', :locals => {:story => @story})
+    else
+      redirect_to root_path
+    end
   end
 
   def new
@@ -28,8 +32,9 @@ class StoriesController < ApplicationController
 
   def destroy
     Story.destroy(params[:id])
-    redirect_to root_path
+    # render :text => render_to_string("#{params[:id]}")
 
+    redirect_to root_path
   end
 
 end

@@ -4,22 +4,14 @@
 
 <%= link_to "Create new story", new_story_path, id: :new_story %>
 
-<ul class="story-list">
-  <% @stories.each do |story| %>
-    <li class="story-title"><%= link_to story.title, story_path(story) %></li><br />
-    <li class="story-description"><%= story.description %></li><br />
-    <li class="story-image_url"><%= story.image_url %></li><br />
-    <%= image_tag(story.image_url) %>
-
-    <%= link_to "EDIT THIS SHIT", edit_story_path(story.id) %>
-
-    <%= link_to "DELETE THIS SHIT", story_path(story.id), method: :delete %>
-  <% end %>
-</ul>
+<div id='story-container'>
+  <ul class="story-list">
+    <% @stories.each do |story| %>
+      <div id='story-<%= story.id %>'> <%= render "story", :story => story %> </div>
+    <% end %>
+  </ul>
+</div>
 
 <div id="pop-up">
   <%= render "form" %>
 </div>
-
-
-
