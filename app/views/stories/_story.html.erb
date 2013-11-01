@@ -5,4 +5,4 @@
 
 <%= link_to "EDIT THIS SHIT", edit_story_path(story.id) %>
 
-<%= link_to "DELETE THIS SHIT", story_path(story.id), method: :delete, class: :delete_button %>
+<%= link_to "DELETE THIS SHIT", story_path(story.id), remote: true, method: :delete, class: :delete_button %>
