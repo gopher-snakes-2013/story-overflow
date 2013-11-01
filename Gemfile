@@ -7,6 +7,7 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'clearance'
 
 group :development do
   gem 'sextant'
@@ -17,8 +18,9 @@ end
 
 group :development, :test do
   gem 'rspec'
-  gem 'rspec-rails'
-  gem 'capybara'
+  gem 'capybara', '~> 2.0'
+  gem 'factory_girl_rails', '~> 4.2'
+  gem 'rspec-rails', '~> 2.13'
 end
 
 # Gems used only for assets and not required
