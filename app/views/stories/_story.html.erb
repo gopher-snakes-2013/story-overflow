@@ -1,0 +1,7 @@
+<li class="story-title"><%= link_to story.title, story_path(story) %></li><br />
+<li class="story-description"><%= story.description %></li><br />
+<li class="story-image_url"><%= story.image_url %></li><br />
+<%= image_tag(story.image_url) %><br />
+<%= link_to "EDIT THIS SHIT", edit_story_path(story.id) %>
+
+<%= link_to "DELETE THIS SHIT", story_path(story.id), remote: true, method: :delete, class: :delete_button %>
