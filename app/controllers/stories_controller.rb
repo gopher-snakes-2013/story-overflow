@@ -10,8 +10,9 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(params[:story])
+    p params
     if @story.save
-      render :text => render_to_string(:partial => 'story', :locals => {:story => @story})
+      render :text => render_to_string(:partial => 'story', :locals => {:local_story => @story})
 
       # [Look @ ajaxy.js]:
       # BIG PICTURE: The result of the above (an html in string form) gets passed to ajax.done as an 'argument' that we chose to call 'new_story'
@@ -23,7 +24,7 @@ class StoriesController < ApplicationController
       # Render EX: render :json => {:apple => "moose"} <-- `new_story = {:apple => "moose"}
 
     else
-      redirect_to root_path
+      render :index
     end
   end
 
