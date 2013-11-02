@@ -1,7 +1,11 @@
-<li class="story-title"><%= link_to story.title, story_path(story) %></li><br />
-<li class="story-description"><%= story.description %></li><br />
-<li class="story-image_url"><%= story.image_url %></li><br />
-<%= image_tag(story.image_url) %><br />
-<%= link_to "EDIT THIS SHIT", edit_story_path(story.id) %>
+<li class="story-title"><%= link_to local_story.title, story_path(local_story) %></li><br />
+<li class="story-description"><%= local_story.description %></li><br />
+<li class="story-image_url"><%= local_story.image_url %></li><br />
+<%= image_tag(local_story.image_url) %><br />
 
-<%= link_to "DELETE THIS SHIT", story_path(story.id), remote: true, method: :delete, class: :delete_button %>
+<% if signed_in? %>
+  <% if (current_user.id == local_story.user_id) %>
+  <%= link_to "EDIT", edit_story_path(local_story.id) %>
+  <%= button_to "DELETE", story_path(local_story.id), remote: true, method: :delete, class: :delete_button, data: { confirm: "Are you sure you want to delete this shit?"}  %>
+  <% end %>
+<% end %>
