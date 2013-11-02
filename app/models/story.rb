@@ -4,4 +4,5 @@ class Story < ActiveRecord::Base
   validates_uniqueness_of :image_url
 
   belongs_to :user
+  has_many :comments
 end

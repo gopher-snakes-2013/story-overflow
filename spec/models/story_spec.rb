@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Story do
+  it { should have_many :comments }
+
   let(:valid_attributes) {
      { title:"New title!", description:"lots of content", image_url: "http://eofdreams.com/data_images/dreams/cat/cat-06.jpg" }
   }

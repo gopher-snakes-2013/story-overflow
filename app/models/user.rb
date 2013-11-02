@@ -7,4 +7,5 @@ include Clearance::User
   validates_uniqueness_of :email
 
   has_many :stories
+  has_many :comments
 end
