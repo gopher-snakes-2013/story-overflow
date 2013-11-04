@@ -2,12 +2,18 @@
 
 <div id="tool_bar"></div>
 
-<%= link_to "Create new story", new_story_path %>
+<% if signed_in? %>
+  <%= link_to "Create new story", new_story_path, id: :new_story %>
+  <div id="pop-up">
+    <%= render partial: "story-form" %>
+  </div>
+<% end %>
 
-<ul class="story-list">
-  <% @stories.each do |story| %>
-    <li class="story-title"><%= link_to story.title, story_path(story) %></li><br />
-    <li class="story-description"><%= story.description %></li><br />
-    <li class="story-image_url"><%= story.image_url %></li><br />
-  <% end %>
-</ul>
+<div id='story-container'>
+  <ul class="story-list">
+    <% @stories.each do |current_story_from_db| %>
+      <div id='story-<%= current_story_from_db.id %>'> <%= render partial: "story", locals: {:local_story => current_story_from_db } %> </div>
+    <% end %>
+  </ul>
+</div>
+
