@@ -20,6 +20,10 @@
   padding-right: 20px;
 }
 
+img {
+  max-width: 600px;
+}
+
 a:link {color:#A088DB;}      /* unvisited link */
 a:visited {color:#A088DB;}  /* visited link */
 a:hover {color:#A088DB;}  /* mouse over link */
