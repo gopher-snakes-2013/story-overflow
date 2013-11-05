@@ -4,7 +4,8 @@ describe StoriesController do
   let(:valid_attributes) {
     { title:"New title!", description:"lots of content", image_url: "http://eofdreams.com/data_images/dreams/cat/cat-06.jpg" }
   }
-  let(:story) {Story.create(valid_attributes)}
+  let(:user) {User.create(username: "me", email: "me@example.com", password: "test123!")}
+  let(:story) {user.stories.create(valid_attributes)}
 
   describe "#new" do
     it  "brings up a page for creating a new story" do
@@ -16,7 +17,7 @@ describe StoriesController do
   describe "#create" do
     it "should create a topic with valid params" do
       expect {
-        post :create, story: {title: 'Man bit by dog', description: 'Ouch that hurts', image_url: "http://maggiemcneill.files.wordpress.com/2012/01/dogs-biting-man.jpg" }
+        post :create, story: {user_id: user.id, title: 'Man bit by dog', description: 'Ouch that hurts', image_url: "http://maggiemcneill.files.wordpress.com/2012/01/dogs-biting-man.jpg" }
       }.to change {Story.count}.by(1)
       expect(Story.last.title).to eq('Man bit by dog')
     end
