@@ -10,7 +10,6 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(params[:story])
-    p params
     if @story.save
       render :text => render_to_string(:partial => 'story', :locals => {:local_story => @story})
 

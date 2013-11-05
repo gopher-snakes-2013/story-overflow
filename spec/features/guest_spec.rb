@@ -12,7 +12,6 @@ feature 'Guest' do
       story
       visit root_path
       click_link "New title!"
-      save_and_open_page
       expect(page).to have_content "#{story.description}"
     end
   end
