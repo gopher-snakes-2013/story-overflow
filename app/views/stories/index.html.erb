@@ -1,6 +1,5 @@
 <h2>Awesome stories</h2>
 
-<div id="tool_bar"></div>
 
 <% if signed_in? %>
   <%= link_to "Create new story", new_story_path, id: :new_story %>
@@ -12,7 +11,7 @@
 <div id='story-container'>
   <ul class="story-list">
     <% @stories.each do |current_story_from_db| %>
-      <div id='story-<%= current_story_from_db.id %>'> <%= render partial: "story", locals: {:local_story => current_story_from_db } %> </div>
+      <div id='story-<%= current_story_from_db.id %>'> <%= render partial: "story", locals: {:local_story => current_story_from_db } %> </br></br> </div>
     <% end %>
   </ul>
 </div>

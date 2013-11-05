@@ -7,19 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if signed_in? %>
-    Signed in as: <%= current_user.email %>
-    <%= link_to 'Sign out', sign_out_path, :method => :delete %>
-  <% else %>
-    <%= link_to 'Sign in', sign_in_path %>
-  <% end %>
 
-  <div id="flash">
-    <% flash.each do |key, value| %>
-      <div class="flash <%= key %>"><%= value %></div>
-    <% end %>
+  <div id="container">
+    <%= image_tag "masthead.jpg" %>
+    <div id="login_status">
+      <% if signed_in? %>
+        Signed in as: <%= current_user.email %>
+        <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'Sign in', sign_in_path %>
+      <% end %>
+    </div>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+    <div id="tool_bar"></div>
+    <div id="inner_wrapper"
+      <%= yield %>
+    </div>
+
   </div>
-<%= yield %>
+
+
+
+
 
 </body>
 </html>
