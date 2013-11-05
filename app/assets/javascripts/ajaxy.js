@@ -1,3 +1,8 @@
+// TODO-JW:
+// 1. Why in heaven's name is this called "ajaxy.js"? Someone hates you.
+// 2. It might be worth refactoring this into "unobtrusive" javascript,
+//    especially since lines 25 and 26 are headed that way
+
 $(document).ready(function() {
   $('#new_story').click(function(event){
     event.preventDefault();
