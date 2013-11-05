@@ -16,6 +16,7 @@
   <%=f.text_field :image_url %>
   <br>
   <br>
+  <%# TODO-JW: See the stories_controller#create action for details. %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="submit-button">
   <%=f.submit "Submit your story" %>

@@ -1,4 +1,7 @@
 class StoriesController < ApplicationController
+  # TODO-JW: since you must be signed in to manipulate stories, try a before filter, i.e. --
+  #before_filter :ensure_signed_in, except: [:index, :show]
+
   def index
     @stories = Story.all
     @story = Story.new
@@ -9,6 +12,9 @@ class StoriesController < ApplicationController
   end
 
   def create
+    # TODO-JW:
+    # 1. Remember: you may want to just pull the current_user at this point and assign the story
+    #    to it rather than passing it through the form.
     @story = Story.new(params[:story])
     if @story.save
       render :text => render_to_string(:partial => 'story', :locals => {:local_story => @story})
@@ -45,6 +51,15 @@ class StoriesController < ApplicationController
     # render :text => render_to_string("#{params[:id]}")
 
     redirect_to root_path
+  end
+
+  private
+
+  def ensure_signed_in
+    unless signed_in?
+      flash[:error] = "You must be signed in for that."
+      redirect_to sign_in_path
+    end
   end
 
 end
