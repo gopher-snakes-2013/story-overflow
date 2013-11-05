@@ -7,4 +7,8 @@ include Clearance::User
   validates_uniqueness_of :email
 
   has_many :stories
+
+  def can_edit(object_with_user_id)
+    self.id == object_with_user_id.user_id
+  end
 end
